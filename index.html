@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Praveen Ramasamy | Web Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 15px;
+    }
+
+    .hero .btn {
+      margin: 10px;
+      padding: 12px 24px;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-frame-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      border: 1px solid #dee2e6;
+      margin-bottom: 1rem;
+    }
+
+    .project-frame-container iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      padding: 40px 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Hi, I'm Praveen Ramasamy</h1>
+      <p>Web Developer crafting modern, scalable and smart solutions</p>
+      <a href="#projects" class="btn btn-outline-light">View My Work</a>
+      <a href="mailto:praveenramsy@gmail.com" class="btn btn-light text-dark">Let's Connect</a>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Praveen R.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Summary -->
+    <div class="section">
+      <h2>Summary</h2>
+      <p>Results-driven Web Developer with 2.9+ years of experience building responsive, user-focused web apps. Skilled
+        in HTML, CSS, JavaScript, React, Node.js, MySQL & PostgreSQL. Adept at problem-solving, optimizing performance,
+        and collaborating with cross-functional teams to ship quality products.</p>
+    </div>
+
+    <!-- Key Achievements -->
+    <div class="section">
+      <h2>Key Achievements</h2>
+      <ul>
+        <li>Reduced order processing time by 30% with Invoice & Order automation.</li>
+        <li>Saved 20% manual time with real-time Attendance and Activity Tracking.</li>
+        <li>Enhanced service delivery accuracy by 25% via Asset Tracking.</li>
+        <li>Cut approval delays by 15% with multi-level Sales/Purchase systems.</li>
+        <li>Automated allowance calculations for 100+ employees.</li>
+        <li>Developed Team Live Location tracking for field activity insights.</li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <h2>Experience</h2>
+      <h5>Web Developer – Magiva Technologies Pvt Ltd, Erode</h5>
+      <p><em>June 2022 – Present</em></p>
+      <ul>
+        <li>Built ERP modules: Invoicing, Attendance, Assets, Sales, Inventory, HR.</li>
+        <li>Led full-stack development from database to front-end UI.</li>
+        <li>Improved automation, workflow speed, and cross-module communication.</li>
+      </ul>
+    </div>
+    <!-- Skills -->
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <p><strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap, React (learning)</p>
+      <p><strong>Backend:</strong> Node.js (Express.js)</p>
+      <p><strong>Database:</strong> MySQL, PostgreSQL</p>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>B.Sc. Computer Science</strong> – 7.0 CGPA, 2022, Erode Arts and Science College</li>
+        <li><strong>HSC</strong> – 56%, 2019, Govt. Hr. Sec. School, Mukasi Hanumanpalli</li>
+        <li><strong>SSLC</strong> – 81%, 2017, Govt. Hr. Sec. School, Mukasi Hanumanpalli</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="section" id="projects">
+      <h2>Projects</h2>
+
+      <div class="mb-4">
+        <p class="project-title">🎓 Alumni Connect Portal — PHP, MySQL</p>
+        <ul>
+          <li>Enabled 10K+ user registrations with secure login and dashboards.</li>
+          <li>Boosted alumni engagement by 25% with real-time features.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <p class="project-title">🌐 IVAN Engineering Website</p>
+        <div class="project-frame-container">
+          <iframe src="https://ivan-india.com"></iframe>
+        </div>
+        <a href="https://ivan-india.com" class="btn btn-primary" target="_blank">Visit Website</a>
+      </div>
+
+      <div class="mb-4">
+        <p class="project-title">🏭 Polystrat Technologies Website</p>
+        <div class="project-frame-container">
+          <iframe src="https://polystrattechnologies.com"></iframe>
+        </div>
+        <a href="https://polystrattechnologies.com" class="btn btn-primary" target="_blank">Visit Website</a>
+      </div>
+
+      <div class="mb-4">
+        <p class="project-title">🛍️ GetsApps – E-commerce & CRM</p>
+        <div class="project-frame-container">
+          <iframe src="https://getsapps.org/getsapps/home"></iframe>
+        </div>
+        <a href="https://getsapps.org" class="btn btn-primary" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container text-center">
+      <h5>Contact</h5>
+      <p>Email: <a href="mailto:praveenramsy@gmail.com">praveenramsy@gmail.com</a></p>
+      <p>Phone: +91 6369109137</p>
+      <p>Location: Erode - 638101</p>
+      <p>
+        <a href="https://github.com/praveen-ramasamy">GitHub</a> |
+        <a href="https://linkedin.com/in/praveen-ramasamy">LinkedIn</a>
+      </p>
+      <p class="mt-3">&copy; 2025 Praveen Ramasamy</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
