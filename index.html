@@ -1,232 +1,626 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Praveen Ramasamy - Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Praveen Ramasamy — Web Developer</title>
+    <meta name="description" content="Praveen Ramasamy — Frontend Developer (HTML, CSS, JS, React, Node) — Portfolio" />
 
-  <!-- Bootstrap & jQuery -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS (Animate on Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        :root {
+            --accent: #3466ff;
+            --accent-2: #7b61ff;
+            --muted: #64748b;
+            --bg: #fff;
+            --card: #f8fafc;
+            --glass: rgba(52, 102, 255, 0.06);
+            --radius: 14px;
+            --maxw: 1100px;
+        }
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/a2e0f2b6e5.js" crossorigin="anonymous"></script>
+        * {
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f7fc;
-      color: #343a40;
-      transition: background-color 0.3s, color 0.3s;
-      overflow-x: hidden;
-    }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Poppins, system-ui, Segoe UI, Roboto, -apple-system;
+            scroll-behavior: smooth;
+        }
 
-    body.dark-mode {
-      background-color: #121212;
-      color: #e0e0e0;
-    }
+        body {
+            background: linear-gradient(180deg, #fbfdff 0%, #f6f9ff 60%);
+            color: #102a43;
+        }
 
-    @media (max-width: 768px) {
-      body.dark-mode {
-        background-color: #f4f7fc;
-        color: #343a40;
-      }
-    }
+        .container {
+            max-width: var(--maxw);
+            margin: 28px auto;
+            padding: 20px;
+        }
 
-    header {
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-    }
+        /* ===== Header ===== */
+        .l-header {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 90;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(16, 42, 67, 0.06);
+        }
 
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #fff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    }
+        .nav {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+        }
 
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: #0d6efd;
-    }
+        .nav__logo {
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.2px;
+        }
 
-    .card {
-      border: none;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
+        .nav__menu {
+            display: flex;
+            gap: 12px;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        .nav__link {
+            color: #1b2330;
+            padding: 8px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-    footer {
-      background: #1a1a1a;
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-    }
+        .nav__link.active {
+            background: var(--glass);
+            color: var(--accent);
+        }
 
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: #0d6efd;
-    }
+        .nav__toggle {
+            display: none;
+            font-size: 22px;
+            color: #1b2330;
+        }
 
-    a {
-      text-decoration: none;
-    }
+        /* ===== Hero ===== */
+        .home {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 26px;
+            align-items: center;
+            padding: 110px 0 40px;
+            text-align: center;
+        }
 
-    .dark-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-weight: bold;
-      z-index: 9999;
-    }
+        .home__title {
+            font-size: 38px;
+            line-height: 1.02;
+            margin: 0;
+        }
 
-    body.dark-mode .dark-toggle {
-      background: #333;
-      color: #fff;
-    }
-  </style>
+        .home__title-color {
+            color: var(--accent-2);
+        }
+
+        .home__subtitle {
+            margin: 18px 0;
+            color: var(--muted);
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button {
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid rgba(16, 42, 67, 0.06);
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(52, 102, 255, 0.2);
+            color: var(--accent);
+        }
+
+        /* ===== sections ===== */
+        section {
+            padding: 28px 0;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--accent);
+            text-align: center;
+            margin: 6px 0 20px;
+        }
+
+        /* about */
+        .about__container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .about__img img {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06);
+        }
+
+        .about__text {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* skills / tech stack */
+        .skills__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tech {
+            background: #fff;
+            border: 1px solid rgba(16, 42, 67, 0.06);
+            padding: 10px 12px;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            min-width: 120px;
+            box-shadow: 0 6px 20px rgba(16, 42, 67, 0.03);
+            transition: 0.3s;
+            justify-content: center;
+        }
+
+        .tech img {
+            display: block;
+        }
+
+        /* projects */
+        .work__container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid rgba(16, 42, 67, 0.04);
+            box-shadow: 0 8px 30px rgba(16, 42, 67, 0.04);
+            text-align: left;
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 10px 0 6px;
+            font-size: 16px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* contact */
+        .contact__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .contact__form {
+            background: #fff;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(16, 42, 67, 0.04);
+        }
+
+        .contact__input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(16, 42, 67, 0.08);
+            margin-bottom: 10px;
+        }
+
+        .contact__input:focus {
+            outline: none;
+            box-shadow: 0 8px 30px rgba(52, 102, 255, 0.12);
+            border-color: var(--accent);
+        }
+
+        /* footer */
+        .footer {
+            margin-top: 26px;
+            padding: 28px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        /* responsiveness */
+        @media (max-width:1024px) {
+            .work__container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about__container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:760px) {
+            .nav__menu {
+                display: none;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+
+            .nav {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .work__container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact__container {
+                grid-template-columns: 1fr;
+            }
+
+            .home {
+                text-align: center;
+            }
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .underline {
+            height: 3px;
+            width: 90px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            border-radius: 6px;
+            margin: 12px auto 24px;
+        }
+
+        /* Ensure the contact card has enough padding */
+        .contact__card {
+            padding: 40px 30px;
+            /* more breathing room */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            /* spacing between inner elements */
+        }
+
+        /* Extra spacing for the title */
+        .contact__card h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        /* Add spacing between paragraphs */
+        .contact__card p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Space above buttons */
+        .contact__card .button {
+            margin-top: 12px;
+        }
+
+        /* Social icons spacing */
+        .contact__card .socials {
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 760px) {
+            .nav__menu {
+                display: none;
+                /* hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                background: #fff;
+                position: absolute;
+                top: 100%;
+                /* below header */
+                left: 0;
+                width: 100%;
+                padding: 12px 0;
+                box-shadow: 0 6px 20px rgba(16, 42, 67, 0.06);
+                border-top: 1px solid rgba(16, 42, 67, 0.08);
+                z-index: 80;
+            }
+
+            .nav__menu.show {
+                display: flex;
+                /* show menu when toggle clicked */
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header id="home">
-    <div class="container position-relative">
-      <!-- <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button> -->
-      <img src="https://media.licdn.com/dms/image/v2/D5603AQFfVq6-ULea0A/profile-displayphoto-shrink_200_200/B56ZPPPtcrHoAY-/0/1734348824112?e=1756339200&v=beta&t=IUvlzEHrQlq6ggBAO1ojWovxfk5tr7-Sfh-EjsORYi4" alt="Praveen Ramasamy" class="img-fluid rounded-circle mb-3">
-      <h1 class="mt-3">Praveen Ramasamy</h1>
-      <p class="lead">Web Developer crafting modern, scalable and smart solutions</p>
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav" role="navigation">
+            <a class="nav__logo">Praveen</a>
+            <div class="nav__menu" id="nav-menu">
+                <a href="#home" class="nav__link active">Home</a>
+                <a href="#about" class="nav__link">About</a>
+                <a href="#skills" class="nav__link">Skills</a>
+                <a href="#work" class="nav__link">Projects</a>
+                <a href="#contact" class="nav__link">Contact</a>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><i class='bx bx-menu'></i></div>
+        </nav>
+    </header>
 
-      <nav class="navbar navbar-expand-md navbar-dark justify-content-center mt-4">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-          <ul class="navbar-nav gap-3">
-            <li class="nav-item"><a class="nav-link text-white" href="#about">Summary</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
+    <div class="container">
+        <!-- HOME -->
+        <section class="home" id="home">
+            <h1 class="home__title">Hi, I'm <span class="home__title-color">Praveen</span><br>Frontend Developer</h1>
+            <p class="home__subtitle">I build fast, accessible and responsive user interfaces. 3+ years crafting web
+                apps — ERP systems, e-commerce, dashboards and company websites.</p>
+            <div class="cta">
+                <a class="button" href="Praveen_Ramasamy.pdf" download>Download CV</a>
+                <a class="button" href="#contact"
+                    style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Hire me</a>
+            </div>
+            <div class="socials">
+                <a href="https://github.com/praveen-ramasamy" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/praveen-ramasamy" target="_blank"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/916369109137" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
+            <div class="underline"></div>
+            <div class="about__container">
+                <div class="about__img"><img src="Praveen-ramasamy.jpeg" alt="Praveen photo"></div>
+                <div>
+                    <h3 style="margin-top:0">Praveen Ramasamy</h3>
+                    <p class="about__text">Results-driven Web Developer with 3.5 years of experience building
+                        business-grade web applications. Skilled in HTML, CSS, JavaScript, Bootstrap, Node.js and React.
+                        Worked on ERP modules — invoice & order management, attendance tracking, inventory, CRM and
+                        more.</p>
+                    <p class="muted" style="margin-top:12px">Location: Erode, India · Email: praveenramsy@gmail.com ·
+                        Phone: +91 63691 09137</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills & Tech Stack</h2>
+            <div class="underline"></div>
+            <div class="skills__container">
+                <div>
+                    <h3 style="margin-top:0">Core Skills</h3>
+                    <p class="about__text">Frontend development, responsive UI, cross-browser compatibility, performance
+                        optimisation, and collaborating with backend teams for robust products.</p>
+                    <div style="margin-top:14px">
+                        <h4 style="margin:8px 0">Technologies I use</h4>
+                        <div class="stack-grid">
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+                                    alt="HTML" style="width:24px;height:24px;border-radius:4px;">HTML5</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
+                                    alt="CSS" style="width:24px;height:24px;border-radius:4px;">CSS3</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
+                                    alt="JavaScript" style="width:24px;height:24px;border-radius:4px;">JavaScript</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React"
+                                    style="width:24px;height:24px;border-radius:4px;">React.js</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg"
+                                    alt="Node" style="width:24px;height:24px;border-radius:4px;">Node.js</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg"
+                                    alt="Bootstrap" style="width:24px;height:24px;border-radius:4px;">Bootstrap</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg"
+                                    alt="MongoDB" style="width:24px;height:24px;border-radius:4px;">MongoDB</div>
+                            <div class="tech"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
+                                    alt="PostgreSQL" style="width:24px;height:24px;border-radius:4px;">PostgreSQL</div>
+                            <div class="tech"><img
+                                    src="ejs.png" alt="EJS"
+                                    style="width:24px;height:24px;border-radius:4px;">EJS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK / PROJECTS -->
+        <section class="work section" id="work">
+            <h2 class="section-title">Projects</h2>
+            <div class="underline"></div>
+            <div class="work__container">
+                <article class="card">
+                    <img src="alumni.png" alt="Alumni Connect">
+                    <h3>Alumni Connect Portal</h3>
+                    <p>PHP, MySQL, JS — Registration & dashboards for 10,000+ users, event coordination and search &
+                        filters.</p>
+                </article>
+                <article class="card">
+                    <img src="ivan-india.png" alt="IVAN">
+                    <h3>IVAN Engineering Solutions</h3>
+                    <p>Responsive company website built with Bootstrap. SEO optimised and mobile friendly.</p>
+                </article>
+                <article class="card">
+                    <img src="getsapps.png" alt="GetsApps">
+                    <h3>GetsApps – E‑commerce & CRM</h3>
+                    <p>Full e-commerce system and custom CRM using Node.js and PostgreSQL.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="underline"></div>
+            <div class="contact__container">
+                <form class="contact__form" action="https://formsubmit.co/praveenramsy@gmail.com" method="POST">
+                    <input class="contact__input" type="text" name="name" placeholder="Your name" required>
+                    <input class="contact__input" type="email" name="email" placeholder="Your email" required>
+                    <textarea class="contact__input" name="message" rows="6" placeholder="Message" required></textarea>
+                    <input type="hidden" name="_subject" value="New contact from portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <button class="button" type="submit">Send message</button>
+                </form>
+                <div>
+                    <div class="card contact__card">
+                        <h3>Get in touch</h3>
+                        <p class="muted">Email: <a href="mailto:praveenramsy@gmail.com">praveenramsy@gmail.com</a></p>
+                        <p class="muted">Phone: <a href="tel:+916369109137">+91 63691 09137</a></p>
+                        <div>
+                            <a class="button" href="Praveen_Ramasamy.pdf" download>Download Resume</a>
+                        </div>
+                        <div>
+                            <p class="muted">Or reach me on</p>
+                            <div style="display:flex;justify-content:center;gap:8px;margin-top:8px">
+                                <a href="https://github.com/praveen-ramasamy" target="_blank" class="socials"><i
+                                        class='bx bxl-github'></i></a>
+                                <a href="https://www.linkedin.com/in/praveen-ramasamy" target="_blank"
+                                    class="socials"><i class='bx bxl-linkedin'></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">© Praveen Ramasamy — Built with ❤️</footer>
     </div>
-  </header>
 
-  <section id="about" class="container py-5" data-aos="fade-up">
-    <h2 class="section-title">Summary</h2>
-    <p>Results-driven Web Developer with 3+ years of experience building responsive, user-focused web apps.</p>
-    <ul>
-      <li>🚀 Reduced order processing time by 30% with Invoice & Order automation</li>
-      <li>⏱️ Saved 20% manual time with real-time Attendance and Activity Tracking</li>
-      <li>📦 Enhanced service delivery accuracy by 25% via Asset Tracking</li>
-      <li>🧾 Cut approval delays by 15% with multi-level Sales/Purchase systems</li>
-      <li>👥 Automated allowance calculations for 100+ employees</li>
-      <li>📍 Developed Team Live Location tracking for field activity insights</li>
-    </ul>
-  </section>
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const toggle = document.getElementById('nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        toggle && toggle.addEventListener('click', () => menu.classList.toggle('show'));
 
-  <section id="skills" class="container bg-light py-5" data-aos="zoom-in">
-    <h2 class="section-title">Skills</h2>
-    <div class="row text-center">
-      <div class="col-md-4"><strong>Frontend:</strong><br>HTML, CSS, JavaScript, Bootstrap, React (learning)</div>
-      <div class="col-md-4"><strong>Backend:</strong><br>Node.js (Express.js)</div>
-      <div class="col-md-4"><strong>Database:</strong><br>MySQL, PostgreSQL</div>
-    </div>
-  </section>
+        document.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', () => {
+            document.querySelectorAll('.nav__link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            if (menu.classList.contains('show')) menu.classList.remove('show');
+        }));
 
-  <section id="experience" class="container py-5" data-aos="fade-right">
-    <h2 class="section-title">Experience</h2>
-    <div class="card p-4">
-      <h5>Web Developer – Magiva Technologies Pvt Ltd, Erode</h5>
-      <p><strong>June 2022 – Present</strong></p>
-      <ul>
-        <li>Built ERP modules: Invoicing, Attendance, Assets, Sales, Inventory, HR</li>
-        <li>Led full-stack development from database to front-end UI</li>
-        <li>Improved automation, workflow speed, and cross-module communication</li>
-      </ul>
-    </div>
-  </section>
+        const sections = document.querySelectorAll('section[id]');
+        function onScroll() {
+            const scrollY = window.pageYOffset;
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 80;
+                const id = current.getAttribute('id');
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.nav__menu a[href*="' + id + '"]').classList.add('active');
+                } else {
+                    const el = document.querySelector('.nav__menu a[href*="' + id + '"]');
+                    el && el.classList.remove('active');
+                }
+            })
+        }
+        window.addEventListener('scroll', onScroll);
 
-  <section id="projects" class="bg-light container py-5" data-aos="fade-left">
-    <h2 class="section-title">Projects</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5>🎓 Alumni Connect Portal</h5>
-          <p>Enabled 10K+ user registrations with login and dashboards. Boosted alumni engagement by 25%.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5>🌐 IVAN Engineering Website</h5>
-          <p>Static business site for client showcasing products/services.</p>
-          <a href="https://ivan-india.com/" class="text-primary mt-auto d-block fw-bold" target="_blank">Website: View Project →</a>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5>🏭 Polystrat Technologies Website</h5>
-          <p>Company profile and product listings site.</p>
-          <a href="https://polystrattechnologies.com/" class="text-primary mt-auto d-block fw-bold" target="_blank">Website: View Project →</a>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5>🛍️ GetsApps – E-commerce & CRM</h5>
-          <p>Full-stack product + CRM dashboard solution.</p>
-          <a href="https://getsapps.org/" class="text-primary mt-auto d-block fw-bold" target="_blank">Website: View Project →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="container py-5" data-aos="zoom-in">
-    <h2 class="section-title">Contact</h2>
-    <p><strong>Email:</strong> <a href="mailto:praveenramsy@gmail.com">praveenramsy@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+916369109137">+91 6369109137</a></p>
-    <p><strong>Location:</strong> Erode - 638101</p>
-    <div class="social-icons">
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Praveen Ramasamy. All rights reserved.</p>
-  </footer>
-
-  <!-- AOS Init + Dark Mode Toggle -->
-  <script>
-    AOS.init();
-
-    function toggleDarkMode() {
-      if (window.innerWidth > 768) {
-        document.body.classList.toggle("dark-mode");
-      }
-    }
-  </script>
+        const sr = ScrollReveal({ origin: 'top', distance: '40px', duration: 900, delay: 150, reset: false });
+        sr.reveal('.home__title, .home__subtitle, .cta', { delay: 200 });
+        sr.reveal('.about__img, .about__text', { delay: 300 });
+        sr.reveal('.tech, .card', { interval: 120 });
+    </script>
 </body>
 
 </html>
